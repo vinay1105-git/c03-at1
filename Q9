@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+class Test
+{
+public:
+    Test() { cout << "Default "; }
+    Test(int x) { cout << "One "; }
+    Test(int x, int y) { cout << "Two "; }
+};
+
+int main()
+{
+    Test t1;
+    Test t2(5);
+    Test t3(5, 10);
+}

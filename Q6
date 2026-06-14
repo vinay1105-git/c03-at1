@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+private:
+    int rollNo;
+    string name;
+
+public:
+    Student(int r = 0, string n = "")
+    {
+        rollNo = r;
+        name = n;
+        cout << "Constructor Called\n";
+    }
+
+    Student(const Student &s)
+    {
+        rollNo = s.rollNo;
+        name = s.name;
+        cout << "Copy Constructor Called\n";
+    }
+
+    bool operator==(const Student &s)
+    {
+        return (rollNo == s.rollNo && name == s.name);
+    }
+
+    ~Student()
+    {
+        cout << "Destructor Called\n";
+    }
+};

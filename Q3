@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class ShoppingCart
+{
+private:
+    int items;
+
+public:
+    ShoppingCart(int i)
+    {
+        items = i;
+        cout << "Parameterized Constructor Called\n";
+    }
+
+    ShoppingCart(const ShoppingCart &c)
+    {
+        items = c.items;
+        cout << "Copy Constructor Called\n";
+    }
+
+    ShoppingCart operator+(const ShoppingCart &c)
+    {
+        ShoppingCart temp(items + c.items);
+        return temp;
+    }
+
+    ~ShoppingCart()
+    {
+        cout << "Destructor Called\n";
+    }
+
+    void display()
+    {
+        cout << "Total Items = " << items << endl;
+    }
+};
+
+int main()
+{
+    ShoppingCart cart1(5);
+    ShoppingCart cart2(10);
+
+    ShoppingCart cart3 = cart1 + cart

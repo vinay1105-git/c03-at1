@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Account
+{
+private:
+    int accNo;
+    double balance;
+
+public:
+    Account()
+    {
+        accNo = 0;
+        balance = 0;
+        cout << "Default Constructor Called\n";
+    }
+
+    Account(int a, double b)
+    {
+        accNo = a;
+        balance = b;
+        cout << "Parameterized Constructor Called\n";
+    }
+
+    Account(const Account &obj)
+    {
+        accNo = obj.accNo;
+        balance = obj.balance;
+        cout << "Copy Constructor Called\n";
+    }
+};
+
+int main()
+{
+    Account A1;
+    Account A2(101, 5000);
+    Account A3 = A2;
+
+    return 0;
+}

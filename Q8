@@ -1,0 +1,68 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Simulation
+{
+private:
+    vector<int> data;
+
+public:
+    Simulation(int n = 0)
+    {
+        data.resize(n);
+        cout << "Constructor Called\n";
+    }
+
+    Simulation(const Simulation &s)
+    {
+        data = s.data;
+        cout << "Copy Constructor Called\n";
+    }
+
+    ~Simulation()
+    {
+        cout << "Destructor Called\n";
+    }
+
+    void display() const
+    {
+        cout << "Object Size = " << data.size() << endl;
+    }
+};
+
+void processByValue(Simulation s)
+{
+    cout << "Processing by Value\n";
+}
+
+void processByReference(const Simulation &s)
+{
+    cout << "Processing by Reference\n";
+}
+
+Simulation createObject()
+{
+    Simulation temp(1000);
+    return temp;
+}
+
+int main()
+{
+    Simulation s1(1000);
+
+    cout << "\nPassing Object by Value:\n";
+    processByValue(s1);
+
+    cout << "\nPassing Object by Reference:\n";
+    processByReference(s1);
+
+    cout << "\nCreating Object from Function:\n";
+    Simulation s2 = createObject();
+
+    cout << "\nDisplaying Objects:\n";
+    s1.display();
+    s2.display();
+
+    return 0;
+}
